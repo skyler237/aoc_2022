@@ -1,0 +1,9 @@
+# ninja log v5
+0	343	1667568018512096190	CMakeFiles/day1.dir/src/aoc_common/input_handler.cpp.o	bfb453a608742a06
+0	328	1667568018496095941	CMakeFiles/day1.dir/src/day1/day1_main.cpp.o	e5831675df906fc5
+0	336	1667567285884128531	CMakeFiles/day1.dir/day1/day1_main.cpp.o	8368cdc45b128a79
+343	399	1667568018568097063	day1	949ad45153ca81a1
+7	919	1668152808970298580	CMakeFiles/day2.dir/src/aoc_common/aoc_puzzle.cpp.o	284ed376a01e2d0
+6	919	1668152808974298478	CMakeFiles/day2.dir/src/aoc_common/input_handler.cpp.o	530fcc232d131fe
+0	935	1668152808986298171	CMakeFiles/day2.dir/src/day2/day2_main.cpp.o	6014acfa94898df4
+935	1259	1668152809310289885	day2	c11291b32ffcc53d
