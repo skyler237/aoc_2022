@@ -4,7 +4,7 @@ project(aoc_2022)
 set(CMAKE_CXX_STANDARD 23)
 
 set(COMMON
-        src/aoc_common/input_handler.cpp src/aoc_common/aoc_puzzle.cpp src/aoc_common/aoc_puzzle.h)
+        src/aoc_common/input_handler.cpp src/aoc_common/aoc_puzzle.cpp src/aoc_common/aoc_puzzle.h src/aoc_common/regex_tokens.cpp)
 
 include_directories(src/aoc_common)
 
