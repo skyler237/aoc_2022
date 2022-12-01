@@ -13,8 +13,7 @@
 
 #include "aoc_puzzle.h"
 
-AoCPuzzle::AoCPuzzle(const std::string& input_filename)
+AoCPuzzle::AoCPuzzle(const std::string& input)
 {
-  input_.loadInput(input_filename);
-
+  input_.loadInput(input);
 }

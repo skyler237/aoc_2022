@@ -17,12 +17,14 @@
 #include <fstream>
 #include <vector>
 #include <iterator>
-#include <ranges>
 #include <sstream>
+
+#include "range/v3/view.hpp"
+#include "aoc_utils.h"
 
 #include "regex_tokens.h"
 
-namespace views = std::ranges::views;
+namespace views = ranges::views;
 
 class InputHandler
 {
@@ -31,11 +33,13 @@ class InputHandler
 
   void loadInput(const std::string& filename);
 
+  std::basic_istringstream<char> getInputStream();
+
   template<class T>
   std::vector<T> getObjects() {
     std::vector<T> objects;
 
-    std::copy(std::istream_iterator<T>(input_file_),
+    std::copy(std::istream_iterator<T>(getInputStream()),
               std::istream_iterator<T>(),
               std::back_inserter(objects));
     return objects;
@@ -45,21 +49,14 @@ class InputHandler
 
   template<class T>
   std::vector<T> getLinesAsObjects() {
-    std::vector<T> objects;
-    std::string line;
-    while (std::getline(input_file_, line)) {
-      std::istringstream ss;
-      T object;
-      ss >> object;
-      objects.push_back(object);
-    }
-    return objects;
+    return input_ | views::split('\n') | ranges::to<std::vector<T>>();
   }
 
   std::vector<RegexTokens> getLinesAsRegexTokens(const std::string& regex_str);
 
  private:
-  std::ifstream input_file_;
+  std::string input_;
+  std::stringstream input_stream_;
 
 };
 

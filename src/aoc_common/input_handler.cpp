@@ -15,35 +15,28 @@
 #include <iostream>
 #include "input_handler.h"
 
-void InputHandler::loadInput(const std::string& filename)
+void InputHandler::loadInput(const std::string& input)
 {
-  input_file_.open(filename);
-  if (!input_file_) {
-    std::cerr << "Error opening file: " << filename << std::endl;
-  }
-  else {
-    std::cout << "Getting input from " << filename << std::endl;
-  }
+  input_ = std::string_view(input);
 }
 
 std::vector<std::string> InputHandler::getLines()
 {
-  std::vector<std::string> lines;
-  std::string line;
-  while (std::getline(input_file_, line)) {
-    lines.push_back(line);
-  }
-  return lines;
+  return input_ | views::split('\n') | ranges::to<std::vector<std::string>>();
 }
 
 std::vector<RegexTokens> InputHandler::getLinesAsRegexTokens(const std::string& regex_str)
 {
   std::vector<RegexTokens> regex_lines;
-  std::string line;
-  while (std::getline(input_file_, line)) {
+  for (const auto& line : getLines()) {
     std::istringstream ss;
     RegexTokens tokens(regex_str, line);
     regex_lines.push_back(tokens);
   }
   return regex_lines;
+}
+
+std::basic_istringstream<char> InputHandler::getInputStream()
+{
+  return std::istringstream(input_);
 }

@@ -1,5 +1,7 @@
-62797
+#ifndef INPUT_H
+#define INPUT_H
 
+constexpr auto input = R"1NPUT(
 1137
 6086
 6104
@@ -2240,3 +2242,6 @@
 6458
 6400
 3736
+)1NPUT";
+
+#endif

@@ -21,7 +21,7 @@
 class AoCPuzzle
 {
  public:
-  explicit AoCPuzzle(const std::string& input_filename = "input.txt");
+  explicit AoCPuzzle(const std::string& input);
 
   virtual void printPart1Solution() {
     std::cout << "Part 1 not implemented yet..." << std::endl;
