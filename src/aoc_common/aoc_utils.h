@@ -35,7 +35,8 @@ class TimedScope
   TimedScope() : start_(ClockT::now()){ }
 
   ~TimedScope() {
-    DurationT duration = ClockT::now() - start_;
+    auto end = ClockT::now();
+    DurationT duration = end - start_;
     std::cout << "Time elapsed: " << static_cast<double>(duration.count()) * kTimeMultiplier << kTimePrefix << std::endl;
   }
 

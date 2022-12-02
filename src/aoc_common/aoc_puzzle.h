@@ -23,12 +23,20 @@ class AoCPuzzle
  public:
   explicit AoCPuzzle(const std::string& input);
 
+  virtual int getPart1Solution() {
+    return 0;
+  }
+
+  virtual int getPart2Solution() {
+    return 0;
+  }
+
   virtual void printPart1Solution() {
-    std::cout << "Part 1 not implemented yet..." << std::endl;
+    std::cout << getPart1Solution() << std::endl;
   }
 
   virtual void printPart2Solution() {
-    std::cout << "Part 2 not implemented yet..." << std::endl;
+    std::cout << getPart2Solution() << std::endl;
   }
 
  protected:
