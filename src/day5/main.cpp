@@ -7,23 +7,40 @@ class Puzzle : public AoCPuzzle
  public:
   Puzzle() : AoCPuzzle(input) {}
 
-  void printPart1Solution() override {
+  int getPart1Solution() override {
+    return 0;
   }
 
-  void printPart2Solution() override {
-
+  int getPart2Solution() override {
+    return 0;
   }
 };
 
+void solvePuzzle(int& part1, int& part2) {
+  Puzzle puzzle;
+  part1 = puzzle.getPart1Solution();
+  part2 = puzzle.getPart2Solution();
+}
+
 int main()
 {
-  TimedScope timer;
-  Puzzle puzzle;
+  int part1;
+  int part2;
+  int iters = 100;
+  DurationT total_duration = DurationT(0);
+//  TimedScope timer;
+  for (int i = 0; i < iters; ++i) {
+    auto start = ClockT::now();
+    solvePuzzle(part1, part2);
+    auto end = ClockT::now();
+    auto duration = end - start;
+    total_duration += duration;
+  }
+  double average_duration_us = static_cast<double>(total_duration.count()) / iters * 1e-3;
 
-  std::cout << "Part 1:" << std::endl;
-  puzzle.printPart1Solution();
+  std::cout << "Part1: " << part1 << std::endl;
+  std::cout << "Part2: " << part2 << std::endl;
 
-  std::cout << "Part 2:" << std::endl;
-  puzzle.printPart2Solution();
+  std::cout << "Average duration: " << average_duration_us << "us" << std::endl;
   return 0;
 }
