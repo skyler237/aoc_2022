@@ -49,19 +49,15 @@ class ElfGroup
   ElfGroup(const std::string& elf1, const std::string& elf2, const std::string& elf3) {
     std::set<char> elf1_set{elf1.begin(), elf1.end()};
     std::set<char> elf2_set{elf2.begin(), elf2.end()};
-    std::set<char> elf3_set{elf3.begin(), elf3.end()};
-    std::vector<char> elf12_intersection(std::min(elf1_set.size(), elf2_set.size()));
-    std::vector<char>::iterator it;
-    it = std::set_intersection(elf1_set.begin(), elf1_set.end(), elf2_set.begin(), elf2_set.end(), elf12_intersection.begin());
-    elf12_intersection.resize(it - elf12_intersection.begin());
-    std::vector<char> intersection(std::min(elf12_intersection.size(), elf3_set.size()));
-    std::set_intersection(elf12_intersection.begin(), elf12_intersection.end(), elf3_set.begin(), elf3_set.end(), intersection.begin());
-
-    char common_item = intersection[0];
-    common_item_priority_ = getItemPriority(common_item);
+    for (const auto& c : elf3) {
+      if (elf1_set.contains(c) && elf2_set.contains(c)) {
+        common_item_priority_ = getItemPriority(c);
+        break;
+      }
+    }
   }
 
-  int getPriority() {
+  int getPriority() const {
     return common_item_priority_;
   }
 
@@ -109,7 +105,7 @@ int main()
 {
   int part1;
   int part2;
-  int iters = 1000;
+  int iters = 10000;
   DurationT total_duration = DurationT(0);
 //  TimedScope timer;
   for (int i = 0; i < iters; ++i) {
@@ -128,4 +124,4 @@ int main()
   return 0;
 }
 
-// Average duration: 847us
+// Average duration: 581us
