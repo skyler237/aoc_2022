@@ -5,15 +5,38 @@
 class Puzzle : public AoCPuzzle
 {
  public:
-  Puzzle() : AoCPuzzle(input) {}
+  Puzzle() : AoCPuzzle(input) {
+    auto matches = input_.getLinesAsRegexTokens(R"(([0-9]+)-([0-9]+),([0-9]+)-([0-9]+))");
+    for (const auto& match : matches) {
+      int min1 = std::stoi(match.getSubmatch(0));
+      int max1 = std::stoi(match.getSubmatch(1));
+      int min2 = std::stoi(match.getSubmatch(2));
+      int max2 = std::stoi(match.getSubmatch(3));
+      if ((min1 <= min2 && max1 >= max2) ||
+          (min2 <= min1 && max2 >= max1)) {
+        ++part1_count_;
+      }
+      if ((min1 >= min2 && min1 <= max2) ||
+          (max1 >= min2 && max1 <= max2) ||
+          (min2 >= min1 && min2 <= max1) ||
+          (max2 >= min1 && max2 <= max1)) {
+        ++part2_count_;
+      }
+    }
+
+  }
 
   int getPart1Solution() override {
-    return 0;
+    return part1_count_;
   }
 
   int getPart2Solution() override {
-    return 0;
+    return part2_count_;
   }
+
+ private:
+  int part1_count_{0};
+  int part2_count_{0};
 };
 
 void solvePuzzle(int& part1, int& part2) {
