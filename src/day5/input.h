@@ -1,7 +1,7 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-constexpr auto input = R"1NPUT([G]                 [D] [R]        
+static const std::string input = R"1NPUT([G]                 [D] [R]        
 [W]         [V]     [C] [T] [M]    
 [L]         [P] [Z] [Q] [F] [V]    
 [J]         [S] [D] [J] [M] [T] [V]

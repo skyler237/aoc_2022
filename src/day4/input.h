@@ -1,7 +1,7 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-constexpr auto input = R"1NPUT(11-73,29-73
+static const std::string input = R"1NPUT(11-73,29-73
 43-82,44-44
 13-85,12-36
 69-80,5-44

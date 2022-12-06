@@ -45,7 +45,9 @@ class InputHandler
     return objects;
   }
 
-  std::vector<std::string> getLines();
+  ranges::getlines_view getLines();
+  
+//  auto getLinesView();
 
   template<class T>
   std::vector<T> getLinesAsObjects() {
@@ -56,8 +58,9 @@ class InputHandler
 
  private:
   std::string input_;
-  std::stringstream input_stream_;
+  std::istringstream input_stream_;
 
+  const auto getLinesView();
 };
 
 #endif //INPUT_HANDLER_H

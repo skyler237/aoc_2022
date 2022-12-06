@@ -18,12 +18,19 @@
 void InputHandler::loadInput(const std::string& input)
 {
   input_ = std::string_view(input);
+  input_stream_ = std::istringstream(input);
 }
 
-std::vector<std::string> InputHandler::getLines()
+ranges::getlines_view InputHandler::getLines()
 {
-  return input_ | views::split('\n') | ranges::to<std::vector<std::string>>();
+  return ranges::getlines(input_stream_);
 }
+
+//auto InputHandler::getLinesView()
+//{
+//  auto ret = input_ | views::split('\n') | views::all;
+//  return ret
+//}
 
 std::vector<RegexTokens> InputHandler::getLinesAsRegexTokens(const std::string& regex_str)
 {

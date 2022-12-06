@@ -1,7 +1,7 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-constexpr auto input = R"1NPUT(vJrrdQlGBQWPTBTF
+static const std::string input = R"1NPUT(vJrrdQlGBQWPTBTF
 fcpTMnMqMfTnZpgMfPbFBWzHPpBPzbCPPH
 mcVMfcsqZgmgVcmfgcmZmqZNJhrlrdhNhDdrRRJSvDTRhJlD
 pMFRmLwHMbRPmMbPPddvqqrrNSTFVttdrN

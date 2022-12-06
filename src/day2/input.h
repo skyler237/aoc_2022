@@ -1,7 +1,7 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-constexpr auto input = R"1NPUT(A Y
+static const std::string input = R"1NPUT(A Y
 B Z
 C Y
 B Y

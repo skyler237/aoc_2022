@@ -15,6 +15,7 @@
 #define AOC_UTILS_H
 
 #include <chrono>
+#include <utility>
 
 typedef std::chrono::steady_clock ClockT;
 typedef std::chrono::nanoseconds DurationT;
@@ -32,16 +33,20 @@ T sumTuple(std::tuple<T>&& tuple){
 class TimedScope
 {
  public:
-  TimedScope() : start_(ClockT::now()){ }
+  explicit TimedScope(std::string  name = "") : start_(ClockT::now()), name_(std::move(name)){ }
 
   ~TimedScope() {
     auto end = ClockT::now();
     DurationT duration = end - start_;
+    if (!name_.empty()) {
+      std::cout << "[" << name_ << "] ";
+    }
     std::cout << "Time elapsed: " << static_cast<double>(duration.count()) * kTimeMultiplier << kTimePrefix << std::endl;
   }
 
  private:
   TimeT start_;
+  std::string name_;
 };
 
 #endif //AOC_UTILS_H

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "aoc_puzzle.h"
 #include "input.h"
+#include <range/v3/getlines.hpp>
 
 class Day1Puzzle : public AoCPuzzle
 {
@@ -54,9 +55,9 @@ int main()
   Day1Puzzle puzzle;
 
 //  std::cout << "Part 1:" << std::endl;
-  puzzle.printPart1Solution();
+//  puzzle.printPart1Solution();
 
 //  std::cout << "Part 2:" << std::endl;
-  puzzle.printPart2Solution();
+//  puzzle.printPart2Solution();
   return 0;
 }

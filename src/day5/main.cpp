@@ -81,10 +81,10 @@ class Puzzle : public AoCPuzzle
     for (const auto& [count, src, dest] : actions_) {
       moveCrates(count, src, dest);
     }
-    for(const auto& crate : crates_ | views::transform([](const auto& stack){return stack.top();})) {
-      std::cout << crate;
-    }
-    std::cout << std::endl;
+//    for(const auto& crate : crates_ | views::transform([](const auto& stack){return stack.top();})) {
+//      std::cout << crate;
+//    }
+//    std::cout << std::endl;
     return 0;
   }
 
@@ -93,10 +93,10 @@ class Puzzle : public AoCPuzzle
     for (const auto& [count, src, dest] : actions_) {
       moveCratesGrouped(count, src, dest);
     }
-    for(const auto& crate : crates_ | views::transform([](const auto& stack){return stack.top();})) {
-      std::cout << crate;
-    }
-    std::cout << std::endl;
+//    for(const auto& crate : crates_ | views::transform([](const auto& stack){return stack.top();})) {
+//      std::cout << crate;
+//    }
+//    std::cout << std::endl;
     return 0;
   }
 
@@ -135,4 +135,4 @@ int main()
   return 0;
 }
 
-// Execution time: 306us
+// Execution time: 269us

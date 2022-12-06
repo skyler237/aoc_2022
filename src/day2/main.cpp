@@ -42,8 +42,8 @@ static const std::map<std::string, int> kPart2ScoreMap {
 class Puzzle : public AoCPuzzle
 {
  public:
-  Puzzle() : AoCPuzzle(input), lines_(input_.getLines()) {
-    for(const auto& line : lines_) {
+  Puzzle() : AoCPuzzle(input) {
+    for(const auto& line : input_.getLines()) {
       part1_sum_ += kPart1ScoreMap.at(line);
       part2_sum_ += kPart2ScoreMap.at(line);
     }
@@ -58,7 +58,6 @@ class Puzzle : public AoCPuzzle
   }
 
  private:
-  std::vector<std::string> lines_;
   int part1_sum_{0};
   int part2_sum_{0};
 };
@@ -92,4 +91,4 @@ int main()
   return 0;
 }
 
-// Execution time: 153us
+// Execution time: 141us

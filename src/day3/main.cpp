@@ -124,4 +124,4 @@ int main()
   return 0;
 }
 
-// Average duration: 581us
+// Average duration: 570us
