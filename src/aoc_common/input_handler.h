@@ -19,7 +19,7 @@
 #include <iterator>
 #include <sstream>
 
-#include "range/v3/view.hpp"
+#include "range/v3/all.hpp"
 #include "aoc_utils.h"
 
 #include "regex_tokens.h"
